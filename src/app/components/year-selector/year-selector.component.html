@@ -1,0 +1,15 @@
+<div class="field-label is-normal">
+  <label class="label" for="year">Year</label>
+</div>
+<div class="field-body">
+  <div class="field is-narrow">
+    <div class="control">
+      <div class="select is-fullwidth">
+        <select id="year" #select (change)="update.next(select.value)">
+          <option *ngFor="let year of years" [value]="year" [selected]="year === value">{{ year }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+

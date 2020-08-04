@@ -1,0 +1,21 @@
+<div class="field-label is-normal">
+  <label class="label" for="order">Order</label>
+</div>
+<div class="field-body">
+  <div class="field is-narrow">
+    <div class="control">
+      <div class="select is-fullwidth">
+        <select id="order" #select (change)="next(select.value, desc.checked)">
+          <option *ngFor="let order of orderingList" [value]="order" [selected]="ordering === order">{{ order }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <div class="control">
+      <label class="checkbox" for="desc">
+        <input type="checkbox" id="desc" #desc (click)="next(select.value, desc.checked)" [checked]="descending"> Descending
+      </label>
+    </div>
+  </div>
+</div>

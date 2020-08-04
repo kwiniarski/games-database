@@ -1,0 +1,30 @@
+<div class="container">
+  <h1 class="title">Games database</h1>
+
+  <app-gene-selector (update)="update('genres', $event)" [value]="params.get('genres')"></app-gene-selector>
+  <app-year-selector
+    (update)="update('dates', $event)"
+    [value]="params.get('dates')"
+    rangeStart="2000"
+  ></app-year-selector>
+  <app-sort-selector (update)="update('ordering', $event)" [value]="params.get('ordering')"></app-sort-selector>
+
+  <table class="table is-fullwidth is-hoverable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Rating</th>
+        <th>Released</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let game of games$ | async">
+        <td>{{ game.id }}</td>
+        <td>{{ game.name }}</td>
+        <td>{{ game.rating }}</td>
+        <td>{{ game.released }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

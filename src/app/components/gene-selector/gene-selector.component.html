@@ -1,0 +1,15 @@
+<div class="field-label is-normal">
+  <label class="label" for="gene">Gene</label>
+</div>
+<div class="field-body">
+  <div class="field is-narrow">
+    <div class="control">
+      <div class="select is-fullwidth">
+        <select id="gene" #select (change)="update.next(select.value)">
+          <option value="">Select</option>
+          <option *ngFor="let gene of genes$ | async" [value]="gene.id" [selected]="value === gene.id">{{ gene.name }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
